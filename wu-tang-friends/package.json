@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "extend": "^3.0.2",
+    "lodash": "^4.17.11",
+    "merge": "^1.2.1",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
+    "react-dev-utils": "^7.0.3",
+    "react-dom": "^16.8.3",
+    "react-scripts": "1.1.4",
+    "url-parse": "^1.4.4",
+    "webpack-dev-server": "^3.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
