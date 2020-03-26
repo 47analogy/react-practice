@@ -7,17 +7,24 @@ const PlayerTable = props => {
 
   let sortedPlayers = [...players]; // copy of props to display sorted players
 
-  if (sortedColumn !== null) {
-    sortedPlayers.sort((a, b) => {
-      if (a[sortedColumn.key] < b[sortedColumn.key]) {
-        return sortedColumn.direction === 'ascending' ? -1 : 1;
-      }
-      if (a[sortedColumn.key] > b[sortedColumn.key]) {
-        return sortedColumn.direction === 'ascending' ? 1 : -1;
-      }
-      return 0;
-    });
-  }
+  // memoize
+  React.useMemo(() => {
+    sortedPlayers = [...players];
+
+    if (sortedColumn !== null) {
+      sortedPlayers.sort((a, b) => {
+        if (a[sortedColumn.key] < b[sortedColumn.key]) {
+          return sortedColumn.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortedColumn.key] > b[sortedColumn.key]) {
+          return sortedColumn.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    console.log(sortedPlayers);
+    return sortedPlayers;
+  }, [players, sortedColumn]);
 
   const getSortDirection = key => {
     let direction = 'ascending';
